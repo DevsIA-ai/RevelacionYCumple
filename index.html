@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mis 3 Años & Revelación · Luis Cristopher · 29.08</title>
+<title>Mis 4 Años & Revelación · Luis Cristopher · 29.08</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -209,7 +209,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
    COUNTDOWN — RING CLOCK
    ============================== */
 #countdown {
-  background:linear-gradient(135deg,var(--dark) 0%,var(--dark-warm) 100%);
+  background:transparent;
   padding:5rem 2rem; text-align:center; position:relative; overflow:hidden;
 }
 #countdown::before {
@@ -267,7 +267,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
 /* ==============================
    FAMILIA
    ============================== */
-#familia { background:var(--white); }
+#familia { background:transparent; }
 .familia-grid {
   display:grid; grid-template-columns:1fr 1fr;
   gap:2rem; margin-top:3rem;
@@ -290,7 +290,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
 /* ==============================
    DETAILS
    ============================== */
-#details { background:linear-gradient(160deg,#f4f6ff,var(--warm)); }
+#details { background:transparent; }
 .detail-cards {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
   gap:1.5rem; margin:3rem 0;
@@ -415,7 +415,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
 /* ==============================
    DRESS CODE
    ============================== */
-#dresscode { background:var(--white); text-align:center; }
+#dresscode { background:transparent; text-align:center; }
 .dress-badge {
   display:inline-block; padding:.5rem 1.75rem;
   border:1px solid var(--rose); border-radius:50px;
@@ -446,7 +446,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
 /* ==============================
    GIFTS
    ============================== */
-#gifts { background:linear-gradient(160deg,#f4f6ff,var(--warm)); text-align:center; }
+#gifts { background:transparent; text-align:center; }
 .gift-cards {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:1.5rem; margin-top:2.75rem;
@@ -479,7 +479,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
    RSVP
    ============================== */
 #rsvp {
-  background:linear-gradient(160deg,var(--dark),var(--dark-warm));
+  background:transparent;
   text-align:center; position:relative; overflow:hidden;
 }
 #rsvp::before {
@@ -520,7 +520,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
 /* ==============================
    CONTACT
    ============================== */
-#contact { background:var(--cream); text-align:center; }
+#contact { background:transparent; text-align:center; }
 .contact-grid { display:flex; gap:3.5rem; justify-content:center; flex-wrap:wrap; margin-top:2.75rem; }
 .contact-lbl { font-size:.56rem; letter-spacing:.42em; text-transform:uppercase; color:var(--rose-dark); margin-bottom:.4rem; }
 .contact-name { font-family:var(--serif); font-size:1.25rem; color:var(--text); margin-bottom:.25rem; }
@@ -841,7 +841,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
   min-height:100vh; position:relative; overflow:hidden;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; padding:4rem 2rem;
-  background:radial-gradient(circle at 30% 25%,#f7f0dd 0%,#eaecd6 45%,#d3e0c9 100%);
+  background:transparent;
 }
 #hero-revelacion .hero-pre { color:var(--rose-dark); }
 #hero-revelacion .hero-names { color:var(--rose-dark); text-shadow:0 2px 24px rgba(255,255,255,.5); }
@@ -855,7 +855,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
    REVELACIÓN — Niña o Niño
    ============================== */
 #revelacion {
-  background:linear-gradient(160deg,#f9f6ee,#f0ecdd);
+  background:transparent;
   text-align:center; position:relative; overflow:hidden;
 }
 #revelacion::before {
@@ -948,9 +948,106 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
     padding-bottom: 1.4rem;
   }
 }
+
+/* --- Fondo fijo de toda la invitación (queda quieto mientras se hace scroll) --- */
+.fixed-bg {
+  position: fixed; inset: 0; z-index: -2;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+.fixed-bg--cumple      { background-image: url('fondo mayor.png'); }
+.fixed-bg--revelacion  { background-image: url('fondo revelacion.jpg'); }
+
+/* Secciones con fondo transparente (se ve la imagen fija al 100%):
+   se agrega sombra de texto en vez de tapar la imagen, para mantener la legibilidad. */
+#familia, #details, #gifts, #dresscode, #contact, #revelacion, #hero-revelacion {
+  text-shadow:
+    0 0 4px rgba(255,255,255,.95), 0 0 4px rgba(255,255,255,.95),
+    0 0 10px rgba(255,255,255,.9), 0 0 18px rgba(255,255,255,.7),
+    0 1px 2px rgba(255,255,255,.9);
+}
+#countdown, #rsvp {
+  text-shadow:
+    0 0 4px rgba(0,0,0,.7), 0 0 4px rgba(0,0,0,.7),
+    0 0 10px rgba(0,0,0,.6), 0 0 18px rgba(0,0,0,.4),
+    0 1px 2px rgba(0,0,0,.7);
+}
+
+/* Cards blancos (o oscuros en secciones oscuras) detrás de cada texto suelto,
+   para que nunca se pierda con la imagen de fondo. */
+#familia .eyebrow, #details .eyebrow, #gifts .eyebrow, #dresscode .eyebrow,
+#contact .eyebrow, #revelacion .eyebrow, #hero-revelacion .hero-pre {
+  background: rgba(255,255,255,.92);
+  display: inline-block;
+  padding: .4rem 1.2rem;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+}
+#familia .section-title, #details .section-title, #gifts .section-title,
+#dresscode .section-title, #contact .section-title, #revelacion .section-title,
+#hero-revelacion .hero-names {
+  background: rgba(255,255,255,.92);
+  display: inline-block;
+  padding: .5rem 1.5rem;
+  border-radius: 18px;
+  text-shadow: none;
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+}
+#hero-revelacion .hero-names { padding-bottom: 0; }
+#hero-revelacion .hero-sub-line, #hero-revelacion .hero-date, #hero-revelacion .hero-quote {
+  background: rgba(255,255,255,.92);
+  display: inline-block;
+  padding: .35rem 1.1rem;
+  border-radius: 14px;
+  text-shadow: none;
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+  margin-top: .6rem !important;
+}
+.note-card, .dresscode-note, .reveal-intro, .reveal-question {
+  background: rgba(255,255,255,.92);
+  display: inline-block;
+  padding: .7rem 1.4rem;
+  border-radius: 16px;
+  text-shadow: none;
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+}
+.dress-badge { background: rgba(255,255,255,.92); }
+
+#rsvp .eyebrow, #rsvp .section-title, #rsvp .rsvp-deadline {
+  background: rgba(10,18,35,.82);
+  display: inline-block;
+  padding: .4rem 1.2rem;
+  border-radius: 999px;
+  text-shadow: none;
+}
+#rsvp .section-title { border-radius: 18px; padding:.5rem 1.5rem; }
+#rsvp .rsvp-form {
+  background: rgba(10,18,35,.82);
+  border-radius: 22px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+#countdown .clock-rings {
+  background: rgba(10,18,35,.78);
+  border-radius: 22px;
+  padding: 1.75rem 1.25rem;
+  display: inline-flex;
+  margin: 0 auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,.2);
+}
+#countdown .cd-label {
+  background: rgba(10,18,35,.82);
+  display: inline-block;
+  padding: .4rem 1.2rem;
+  border-radius: 999px;
+  text-shadow: none;
+}
 </style>
 </head>
 <body>
+
+<div class="fixed-bg fixed-bg--cumple mode-cumple-only"></div>
+<div class="fixed-bg fixed-bg--revelacion mode-revelacion-only"></div>
 
 <!-- ======================== ENVELOPE OVERLAY ======================== -->
 <div id="env-overlay">
@@ -976,7 +1073,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
   <!-- Fase 2: Tarjeta personalizada -->
   <div class="env-card" id="envCard">
     <div class="env-card-inner">
-      <p class="env-card-eyebrow">⭐ &nbsp;Mis 3 Años &amp; Revelación &nbsp;⭐</p>
+      <p class="env-card-eyebrow">⭐ &nbsp;Mis 4 Años &amp; Revelación &nbsp;⭐</p>
       <div class="env-card-hr"></div>
       <p class="env-card-couple">Luis Cristopher</p>
       <p class="env-card-date">29 · 08</p>
@@ -985,7 +1082,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
 
       <button class="env-choice env-choice--cumple" onclick="elegir('cumple')">
         <span class="env-choice-emoji">🎂</span>
-        <span class="env-choice-txt"><b>Cumpleaños</b><small>Los 3 añitos de Luis Cristopher</small></span>
+        <span class="env-choice-txt"><b>Cumpleaños</b><small>Los 4 añitos de Luis Cristopher</small></span>
         <span class="env-choice-arrow">→</span>
       </button>
 
@@ -1033,7 +1130,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
 
   <h1 class="hero-names">
     Luis Cristopher
-    <span class="hero-sub-line">Mis 3 añitos · ¡y voy a ser hermano mayor!</span>
+    <span class="hero-sub-line">Mis 4 añitos · ¡y voy a ser hermano mayor!</span>
   </h1>
 
   <div class="divider-orn">⭐</div>
@@ -1041,7 +1138,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
   <p class="hero-date">29 de Agosto</p>
 
   <p class="hero-quote">
-    Celebremos juntos mi tercer cumpleaños...<br>
+    Celebremos juntos mi cuarto cumpleaños...<br>
     ¡gracias por acompañarme en mi gran día!
   </p>
 
@@ -1188,6 +1285,11 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
         <p class="detail-card-val">29 de Agosto</p>
       </div>
       <div class="detail-card reveal d1">
+        <div class="detail-card-icon">🕒</div>
+        <p class="detail-card-lbl">Hora</p>
+        <p class="detail-card-val">3:00 PM</p>
+      </div>
+      <div class="detail-card reveal d1">
         <div class="detail-card-icon">📍</div>
         <p class="detail-card-lbl">Lugar</p>
         <p class="detail-card-val">Por confirmar<br><span style="font-size:.85rem">Te avisaremos muy pronto</span></p>
@@ -1195,10 +1297,10 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
     </div>
 
     <!-- MAP: genérico, ubicación por confirmar -->
-    <p style="font-family:var(--serif);font-size:1.1rem;color:var(--text-muted);margin:2.5rem 0 .75rem;text-align:center">
+    <p class="note-card" style="font-family:var(--serif);font-size:1.1rem;color:var(--text-muted);margin:2.5rem auto .75rem;text-align:center">
       <em>Ubicación por confirmar</em>
     </p>
-    <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:.75rem;text-align:center">
+    <p class="note-card" style="font-size:.78rem;color:var(--text-muted);margin:0 auto .75rem;text-align:center">
       Pronto compartiremos aquí el lugar exacto de la celebración.
     </p>
     <div class="map-box reveal">
@@ -1225,7 +1327,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
     <h2 class="section-title reveal">Revelación del <em>bebé en camino</em></h2>
     <div class="divider-line"></div>
 
-    <p class="reveal d1" style="color:var(--text-muted);max-width:480px;margin:1rem auto .5rem;font-size:.9rem;line-height:1.7">
+    <p class="reveal d1 note-card" style="color:var(--text-muted);max-width:480px;margin:1rem auto .5rem;font-size:.9rem;line-height:1.7">
       Además del cumpleaños de Luis Cristopher, ¡pronto llegará un nuevo integrante a la familia!
       El futuro hermanito o hermanita nos manda este mensajito:
     </p>
@@ -1238,7 +1340,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
     </p>
 
     <p class="reveal-question reveal">¿Niña o niño?</p>
-    <p class="reveal d1" style="font-size:.9rem;color:var(--text-muted);max-width:440px;margin:.25rem auto 0;line-height:1.7">
+    <p class="reveal d1 note-card" style="font-size:.9rem;color:var(--text-muted);max-width:440px;margin:.25rem auto 0;line-height:1.7">
       Haz tu apuesta y ayúdanos a recibir al bebé con tu regalito según lo que creas 👶
     </p>
 
@@ -1358,7 +1460,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
     <span class="eyebrow reveal">Con mucho cariño</span>
     <h2 class="section-title reveal">Sobres y <em>regalos</em></h2>
     <div class="divider-line"></div>
-    <p class="reveal" style="color:var(--text-muted);max-width:480px;margin:.75rem auto 0;font-size:.875rem;line-height:1.8">
+    <p class="reveal note-card" style="color:var(--text-muted);max-width:480px;margin:.75rem auto 0;font-size:.875rem;line-height:1.8">
       Tu presencia es nuestro mejor regalo.<br>
       Si además deseas obsequiar algo, aquí te dejamos algunas opciones.
     </p>
@@ -1457,7 +1559,7 @@ body.mode-revelacion #switch-btn { background:var(--rose); box-shadow:0 8px 26px
 <!-- FOOTER -->
 <footer>
   <p class="footer-names">Luis Cristopher</p>
-  <p class="footer-date">29 · 08 · Mis 3 Años &amp; Revelación de Bebé</p>
+  <p class="footer-date">29 · 08 · Mis 4 Años &amp; Revelación de Bebé</p>
   <div class="footer-orn"><span class="footer-gem">⭐</span></div>
 </footer>
 
@@ -1517,7 +1619,7 @@ function cambiarInvitacion(){
 
 /* ---- COUNTDOWN ---- */
 const CIRC = 276.46;
-const QUINCE = new Date('2026-08-29T12:00:00');
+const QUINCE = new Date('2026-08-29T15:00:00');
 
 function pad(n){ return String(Math.floor(n)).padStart(2,'0'); }
 
@@ -1666,7 +1768,7 @@ function sendWhatsApp(){
   const asistencia = attendVal === 'yes' ? 'Sí asistiremos' : attendVal === 'no' ? 'Lo siento, no podremos asistir' : '(sin seleccionar)';
   const apuesta = guessVal ? `\nMi apuesta: creo que es ${guessVal}` : '';
   const msg = document.getElementById('rsvpMsg').value.trim();
-  let texto = `¡Hola! \n\nConfirmación para el cumpleaños #3 y la revelación de bebé de Luis Cristopher (29 de Agosto).\n${asistencia}${apuesta}`;
+  let texto = `¡Hola! \n\nConfirmación para el cumpleaños #4 y la revelación de bebé de Luis Cristopher (29 de Agosto).\n${asistencia}${apuesta}`;
   if(msg) texto += `\n\nMensaje: ${msg}`;
   if(!WHATSAPP_TEL){
     alert('El número de contacto está pendiente de proporcionar. ¡Muy pronto podrás confirmar tu asistencia por aquí! ⭐');
